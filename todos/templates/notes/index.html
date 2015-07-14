@@ -1,0 +1,24 @@
+{%load staticfiles%}
+<link rel="stylesheet" type="text/css" href="{% static 'notes/style.css' %}" />
+<div class="wrap">
+  	<div class="header"><span>Todo List</span></div>
+		<div class="wrap-list">
+			<ol class="list">
+				{% if notes %}
+                    {% for note in notes %}
+    				<li>
+    					<input type="checkbox" id="check-1" >
+    					<label for="check-1">
+    					    <a>
+    					        {{note.date}} ----- Do: {{note.todo}}
+                            </a>
+                        </label>
+    				</li>
+                        
+                    {% endfor %}
+                    {% else %}
+                        <p>No notes are available.</p>
+                {% endif %}
+			</ol>
+		</div>
+	</div>
