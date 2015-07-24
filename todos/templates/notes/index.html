@@ -1,24 +1,21 @@
-{%load staticfiles%}
+
+{% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'notes/style.css' %}" />
-<div class="wrap">
-  	<div class="header"><span>Todo List</span></div>
-		<div class="wrap-list">
-			<ol class="list">
-				{% if notes %}
+{% if notes %}
+    <div class="wrap">
+        <div class="header"><span>Todo List</span></div>
+            <div class="wrap-list">
+                <ol class="list">
                     {% for note in notes %}
-    				<li>
-    					<input type="checkbox" id="check-1" >
-    					<label for="check-1">
-    					    <a>
-    					        {{note.date}} ----- Do: {{note.todo}}
-                            </a>
-                        </label>
-    				</li>
-                        
-                    {% endfor %}
-                    {% else %}
-                        <p>No notes are available.</p>
-                {% endif %}
-			</ol>
-		</div>
-	</div>
+                            <li>
+                            <a href={% url 'detail' note.id %}>
+                            <input type="checkbox" note.id >
+                            <label for=note.id> {{note.date}} ----- Do: {{note.title}}</label></a>
+                            </li>
+                    {%endfor%}
+                </ol>
+            </div> 
+    </div>        
+{% else %}
+    <p>No notes available</p>
+{% endif %}
