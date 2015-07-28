@@ -1,0 +1,19 @@
+{%load staticfiles%}
+<link rel="stylesheet" type="text/css" href="{% static 'todos/style.css' %}" />
+{% if notes %}
+    {% for note in notes %}
+            <div class="postit" style="background:{{note.color}};color:{{note.fontcolor}}">
+                <div id="base" style="border-color:{{note.folder.color}} transparent transparent transparent;">
+                    <div class="rotatevertical">
+                        {{note.folder.title}}
+                    </div>
+                </div>
+               <br>
+               <u>{{note.title}}</u>
+               <br>
+               {{note.content}}
+            </div>
+    {% endfor %}
+{% else %}
+    <p>No notes are available.</p>
+{% endif %}

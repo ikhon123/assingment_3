@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{note.title}}</title>
+    </head>
+    <body>
+        Title:{{note.title}} <br/>
+        Content:{{note.content}}<br/>
+        Folder:{{note.folder}}<br/>
+        Tag(s):
+        <ul>
+        {%for t in note.tag.all%}
+            <li>{{t.title}}</li>
+        {%endfor%}
+        </ul>
+    </body>
+</html>
