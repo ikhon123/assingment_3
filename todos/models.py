@@ -9,7 +9,6 @@ class Note(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True, null=True)
     done = models.BooleanField(default=False)
     color = models.CharField(max_length=50, default="yellow")
-    fontcolor = models.CharField(max_length=50, default="black")
     folder = models.ForeignKey('Folder', related_name= "notes", null=True, blank=True)
     tag = models.ManyToManyField('Tag', related_name='notes', null=True, blank=True)
     
@@ -24,15 +23,13 @@ class Note(models.Model):
 class Folder(models.Model):
     title = models.CharField(max_length=255)
     color = models.CharField(max_length=50, default="purple")
-    fontcolor = models.CharField(max_length=50, default="white")
     
     def __str__(self):
         return self.title
         
 class Tag(models.Model):
     title = models.CharField(max_length=255)
-    color = models.CharField(max_length=50, default="red")
-    fontcolor = models.CharField(max_length=50, default="black")
+    color = models.CharField(max_length=50, default="red")\
     
     def __str__(self):
         return self.title

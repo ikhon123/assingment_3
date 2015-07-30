@@ -7,10 +7,11 @@
             <div class="wrap-list">
                 <ol class="list">
                     {% for note in object_list %}
-                            <li>
+                            <li >
                             <a href={% url 'detail' note.id %}>
                             <input type="checkbox" note.id >
-                            <label for=note.id> {{note.folder}} ----- Do: {{note.title}}</label></a>
+                            <label for=note.id ><span style="background-color:{{note.color}}">{{note.folder}} ----- Do: {{note.title}}</span></label>
+                            </a>
                             </li>
                     {%endfor%}
                 </ol>
