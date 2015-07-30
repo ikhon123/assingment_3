@@ -35,7 +35,6 @@ def note(request, note_id):
     return render(request, 'todos/note.html', {'note':note})
     
 class NoteList(ListView):
-    #https://docs.djangoproject.com/en/1.7/topics/class-based-views/generic-display/
     model = Note
     
     def get_queryset(self):

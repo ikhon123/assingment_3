@@ -1,17 +1,21 @@
-{%load staticfiles%}
+
+{% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'todos/style.css' %}" />
-    {% if object_list  %}
-        {% for note in object_list  %}
-            <div class="postit" style="background:{{note.color}};color:{{note.fontcolor}}">
-            	<div id="base" style="border-color:{{note.folder.color}} transparent transparent transparent;">
-                    <div class="rotatevertical">{{note.folder.title}}</div>
-                </div>
-                <br>
-                <u>{{note.title}}</u>
-                <br>
-                {{note.content}}
-            </div>
-        {% endfor %}
-    {% else %}
-        <p>No notes are available.</p>
-    {% endif %}
+{% if object_list %}
+    <div class="wrap">
+        <div class="header"><span>Todo List</span></div>
+            <div class="wrap-list">
+                <ol class="list">
+                    {% for note in object_list %}
+                            <li>
+                            <a href={% url 'detail' note.id %}>
+                            <input type="checkbox" note.id >
+                            <label for=note.id> {{note.folder}} ----- Do: {{note.title}}</label></a>
+                            </li>
+                    {%endfor%}
+                </ol>
+            </div> 
+    </div>        
+{% else %}
+    <p>No notes available</p>
+{% endif %}
