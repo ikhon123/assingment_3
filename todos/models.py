@@ -1,7 +1,10 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.views.generic import ListView
+from accounts.models import UserProfile
+
 class Note(models.Model):
+    user = models.ForeignKey(UserProfile, blank=True, null=True)
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True) 
     due = models.DateTimeField(null=True, blank=True) 

@@ -6,12 +6,14 @@ from todos.models import Note
 
 urlpatterns = patterns('',
     url(r'^listall/$', ListView.as_view(model=Note)),
-    url(r'^list/(?P<folder>.*)$', views.NoteList.as_view(), name='notes_list'),\
-    url(r'^add/$', views.NoteCreate.as_view(), name='note_add'),
+    url(r'^list/(?P<folder>.*)$', views.NoteList.as_view(), name='notes_list'),
+    url(r'^add/$', views.MyView.as_view(), name="note_add"),
     url(r'^note/(?P<pk>\d+)/edit/$', views.NoteUpdate.as_view(),  name='note_update'),
     url(r'^note/(?P<pk>\d+)/delete/$', views.NoteDelete.as_view(),  name='todo_delete'),
     url(r'^note/(?P<pk>\d+)$', views.NoteDetail.as_view(),  name='detail'),
-    url(r'^admin/', include(admin.site.urls))
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/', include('accounts.urls')),
+
 )
 
 

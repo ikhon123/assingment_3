@@ -10,7 +10,7 @@
                             <li >
                             <a href={% url 'detail' note.id %}>
                             <input type="checkbox" note.id >
-                            <label for=note.id ><span style="background-color:{{note.color}}">{{note.folder}} ----- Do: {{note.title}}</span></label>
+                            <label for=note.id >{{note.folder}} ----- Do: {{note.title}}</label>
                             </a>
                             </li>
                     {%endfor%}
